@@ -193,7 +193,7 @@ export default function Tweak() {
     }
 
     return (
-        <div className="flex flex-col px-[1vw] py-[1vw] gap-[0.8vw] overflow-y-scroll">
+        <div className="grow flex flex-col px-[1vw] py-[1vw] gap-[0.8vw] overflow-y-scroll">
             <div className="text-[#696969] text-[0.9vw] font-light"># Tweak</div>
             <button
                 className="mb-2 px-3 py-1 rounded bg-red-500 text-white text-[0.9vw] w-fit"

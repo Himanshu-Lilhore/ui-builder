@@ -11,7 +11,7 @@ export const nodePropsToTailwind = (props) => {
     if (props.margin) classes.push(`m-[${props.margin}vw]`);
     if (props.minWidth) classes.push(`min-w-[${props.minWidth}vw]`);
     if (props.minHeight) classes.push(`min-h-[${props.minHeight}vw]`);
-    
+
     if (props.display === "flex") {
         classes.push("flex");
         if (props.flexDirection === "col") classes.push("flex-col");
@@ -36,7 +36,7 @@ export const nodePropsToTailwind = (props) => {
 
     if (!props.minWidth) classes.push("min-w-[2vw]");
     if (!props.minHeight) classes.push("min-h-[2vw]");
-    
+
     return classes.join(" ");
 };
 
@@ -45,8 +45,20 @@ export const generateTailwindTree = (nodes, indent = 0) => {
     return nodes
         .map((node) => {
             const pad = "  ".repeat(indent);
+            const classes = nodePropsToTailwind(node.props);
             const children = generateTailwindTree(node.children, indent + 1);
-            return `${pad}<div className="${nodePropsToTailwind(node.props)}">${
+            
+            // Break down long className strings into multiple lines for better readability
+            const formattedClasses = classes.split(' ')
+                .reduce((acc, cls, i, arr) => {
+                    if (i === 0) return cls;
+                    if ((acc.length + cls.length + 1) > 80) {
+                        return acc + '\n' + pad + '  ' + cls;
+                    }
+                    return acc + ' ' + cls;
+                }, '');
+
+            return `${pad}<div\n${pad}  className="${formattedClasses}"\n${pad}>${
                 children ? "\n" + children + "\n" + pad : ""
             }</div>`;
         })

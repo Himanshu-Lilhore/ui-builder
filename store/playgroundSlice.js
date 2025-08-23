@@ -31,7 +31,6 @@ import { createSlice } from "@reduxjs/toolkit";
 // Initial state: a tree with a root node (could be expanded for more complex structures)
 const initialState = {
     tree: [],
-    playgroundRef: null,
     selectedId: null,
     liveValue: null, // { prop, value, label, unit }
 };
@@ -109,9 +108,7 @@ const playgroundSlice = createSlice({
             if (prop === 'height') actualProp = 'minHeight';
             findAndUpdateProp(state.tree, id, actualProp, value);
         },
-        setPlaygroundRef: (state, action) => {
-            state.playgroundRef = action.payload;
-        },
+
         setSelected: (state, action) => {
             state.selectedId = action.payload;
         },
@@ -121,6 +118,6 @@ const playgroundSlice = createSlice({
     },
 });
 
-export const { addDiv, setPlaygroundRef, setSelected, updateProp, deleteNode, setLiveValue } =
+export const { addDiv, setSelected, updateProp, deleteNode, setLiveValue } =
     playgroundSlice.actions;
 export default playgroundSlice.reducer;

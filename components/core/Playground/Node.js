@@ -10,7 +10,7 @@ export const Node = ({ node, selectedId, onSelect, children }) => {
                     ? { outline: "0.15vw dotted #2563eb", outlineOffset: "0.3vw", zIndex: 99 }
                     : {}),
             }}
-            className={"m-2 cursor-pointer group relative hover:shadow-lg transition-all duration-200"}
+            className={"m-2 cursor-pointer group relative"}
             onClick={onSelect}
         >
             <div
@@ -29,20 +29,8 @@ export const Node = ({ node, selectedId, onSelect, children }) => {
             >
                 {node.id}
             </div>
-            <div
-                className="absolute inset-0 pointer-events-none rounded"
-                style={{
-                    border: "2px solid transparent",
-                    zIndex: 9,
-                }}
-            />
-            <style>{`
-                .group:hover > .absolute.inset-0 {
-                    border-color: #ef4444 !important;
-                    box-shadow: 0 0 0 1px #ef4444;
-                    z-index: 999;
-                }
-            `}</style>
+            <div className='absolute opacity-0 pointer-events-none group-hover:opacity-100 top-0 left-0 w-full h-full border-[0.1vw] border-red-500 z-[999]'>
+            </div>
             {node.children && node.children.length > 0 && (
                 <div className="w-full h-full">{children}</div>
             )}

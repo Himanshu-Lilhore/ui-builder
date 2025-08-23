@@ -4,7 +4,7 @@ import Tweak from "./Tweak";
 
 export default function Panel() {
     return (
-        <div className="flex flex-col w-[35%] border-r-[0.1vw] h-full divide-y-[0.1vw]">
+        <div className="relative flex flex-col w-[30%] border-r border-r-[0.1vw] h-full divide-y-[0.1vw]">
             <Logo />
             <Create />
             <Tweak />
