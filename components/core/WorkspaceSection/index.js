@@ -1,16 +1,16 @@
-import { useState, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setSelected } from '../../../store/playgroundSlice';
-import Playground, { Node } from '../Playground';
-import TailwindCode from '../TailwindCode';
-import { generateTailwindTree } from '../../../utils/tailwindUtils';
+import { useState, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelected } from "../../../store/playgroundSlice";
+import Playground, { Node } from "../Playground";
+import TailwindCode from "../TailwindCode";
+import { generateTailwindTree } from "../../../utils/tailwindUtils";
 
 export default function WorkspaceSection() {
     const pgRef = useRef();
     const dispatch = useDispatch();
     const tree = useSelector((state) => state.playground.tree);
     const selectedId = useSelector((state) => state.playground.selectedId);
-    const [view, setView] = useState('playground');
+    const [view, setView] = useState("playground");
     const tailwindCode = generateTailwindTree(tree);
 
     const renderNode = (node) => (
@@ -29,36 +29,33 @@ export default function WorkspaceSection() {
 
     return (
         <div className="flex-1 flex flex-col">
-            <div className="border-b flex items-center px-4 py-2 bg-gray-50">
-                <div className="flex space-x-1 bg-gray-200 p-1 rounded-lg">
+            <div className="flex items-center p-[0.3vw]">
+                <div className="flex bg-gray-200 mx-[1.1vw] my-[0.5vw] p-[0.3vw] border rounded-[0.5vw] overflow-hidden">
                     <button
-                        className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${
-                            view === 'playground'
-                                ? 'bg-white text-gray-800 shadow'
-                                : 'text-gray-600 hover:text-gray-800'
+                        className={`px-[0.5vw] py-[0.35vw] rounded-[0.3vw] text-[0.8vw] font-medium transition-colors ${
+                            view === "playground"
+                                ? "bg-white text-gray-800 shadow"
+                                : "text-gray-600 hover:text-gray-800"
                         }`}
-                        onClick={() => setView('playground')}
+                        onClick={() => setView("playground")}
                     >
                         Playground
                     </button>
                     <button
-                        className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${
-                            view === 'code'
-                                ? 'bg-white text-gray-800 shadow'
-                                : 'text-gray-600 hover:text-gray-800'
+                        className={`px-[0.5vw] py-[0.35vw] rounded-[0.3vw] text-[0.8vw] font-medium transition-colors ${
+                            view === "code"
+                                ? "bg-white text-gray-800 shadow"
+                                : "text-gray-600 hover:text-gray-800"
                         }`}
-                        onClick={() => setView('code')}
+                        onClick={() => setView("code")}
                     >
                         Code
                     </button>
                 </div>
             </div>
             <div className="flex-1 relative">
-                {view === 'playground' ? (
-                    <Playground ref={pgRef}>{tree.map(renderNode)}</Playground>
-                ) : (
-                    <TailwindCode code={tailwindCode} />
-                )}
+                <Playground ref={pgRef}>{tree.map(renderNode)}</Playground>
+                <TailwindCode code={tailwindCode} visible={view === "code"} />
             </div>
         </div>
     );

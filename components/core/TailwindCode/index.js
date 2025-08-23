@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function TailwindCode({ code }) {
+export default function TailwindCode({ code, visible }) {
     const [copied, setCopied] = useState(false);
     const [formattedCode, setFormattedCode] = useState("");
 
@@ -41,26 +41,23 @@ export default function TailwindCode({ code }) {
     }, [code]);
 
     return (
-        <div className="h-full w-full bg-white p-6">
-            <div className="bg-gray-50 rounded-lg p-4 h-full">
-                <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-lg font-semibold text-gray-700">Generated Tailwind Code</h2>
-                    <button
-                        className="px-3 py-1.5 bg-green-600 text-white rounded hover:bg-green-700 transition-colors text-sm"
-                        onClick={() => {
-                            navigator.clipboard.writeText(formattedCode);
-                            setCopied(true);
-                            setTimeout(() => setCopied(false), 1200);
-                        }}
-                    >
-                        {copied ? "Copied!" : "Copy Code"}
-                    </button>
-                </div>
-                <div className="overflow-auto h-[calc(100%-3rem)] rounded border bg-white">
-                    <pre className="p-4 text-sm whitespace-pre-wrap break-words font-mono leading-relaxed">
-                        {formattedCode}
-                    </pre>
-                </div>
+        <div
+            className={`${visible ? "opacity-100" : "opacity-0"} absolute top-0 left-0 h-full w-full max-w-[96%] max-h-[97.5%] rounded-[0.8vw] mx-[1.5vw] my-[0.2vw] border bg-zinc-800/85 shadow-inner shadow-white backdrop-blur-md overflow-hidden z-[100] transition-all duration-400`}
+        >
+            <button
+                className="absolute right-[1.5vw] top-[1vw] px-[0.75vw] py-[0.2vw] bg-gray-100 hover:border-black/40 active:scale-[96%] border-transparent border-[0.2vw] text-black/80 rounded-[0.4vw] text-[0.9vw] font-semibold z-[101] transition-all duration-250"
+                onClick={() => {
+                    navigator.clipboard.writeText(formattedCode);
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 1200);
+                }}
+            >
+                {copied ? "Copied!" : "Copy"}
+            </button>
+            <div className="relative h-full w-full overflow-auto">
+                <pre className="p-[1.2vw] text-sm whitespace-pre-wrap break-words font-mono leading-relaxed">
+                    {formattedCode}
+                </pre>
             </div>
         </div>
     );
