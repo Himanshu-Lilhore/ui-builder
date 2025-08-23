@@ -184,7 +184,7 @@ export default function Tweak() {
     if (!node) {
         return (
             <div className="flex flex-col px-[1vw] py-[1vw] gap-[0.4vw]">
-                <div className="text-[#696969] text-[0.9vw] font-light"># Tweak</div>
+                <div className="text-[#a1a1a1] text-[0.9vw] font-semibold"># Tweak</div>
                 <div className="text-[0.9vw] text-gray-400">
                     Select an element to tweak its properties.
                 </div>
@@ -194,7 +194,7 @@ export default function Tweak() {
 
     return (
         <div className="grow flex flex-col px-[1vw] py-[1vw] gap-[0.8vw] overflow-y-scroll">
-            <div className="text-[#696969] text-[0.9vw] font-light"># Tweak</div>
+            <div className="text-[#a1a1a1] text-[0.9vw] font-semibold"># Tweak</div>
             <button
                 className="mb-2 px-3 py-1 rounded bg-red-500 text-white text-[0.9vw] w-fit"
                 onClick={() => dispatch(deleteNode(node.id))}

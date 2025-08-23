@@ -5,7 +5,7 @@ export default function Create() {
     const dispatch = useDispatch();
     return (
         <div className="sticky top-0 flex flex-col px-[1vw] py-[1vw] gap-[0.5vw]">
-            <div className="text-[#696969] text-[0.9vw] font-light"># Create</div>
+            <div className="text-[#a1a1a1] text-[0.9vw] font-semibold"># Create</div>
             <div className="flex gap-[1vw] min-h-[5vw]">
                 <button
                     onClick={() => dispatch(addDiv())}
