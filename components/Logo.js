@@ -25,7 +25,7 @@ const logoStyles = [
         className="sticky top-0 group relative text-[1vw] italic font-semibold w-full text-center whitespace-nowrap bg-white min-h-[5vw] max-h-[5vw] text-[#212121] overflow-hidden"
         style={{ fontFamily: "Trebuchet MS" }}
     >
-        <div className="flex flex-wrap w-[250%] h-[250%] translate-x-[-50%] translate-y-[-50%] -rotate-[10deg]">
+        <div className="flex flex-wrap w-[300%] h-[300%] translate-x-[-50%] translate-y-[-70%] rotate-x-[30deg] rotate-y-[-20deg] scale-[180%] hover:scale-[120%] duration-300 transition-all">
             {Array(200)
                 .fill(1)
                 .map((item, index) => {

@@ -30,11 +30,11 @@ export default function WorkspaceSection() {
     return (
         <div className="flex-1 flex flex-col">
             <div className="flex items-center p-[0.3vw]">
-                <div className="flex bg-gray-200 mx-[1.1vw] my-[0.5vw] p-[0.3vw] border rounded-[0.5vw] overflow-hidden">
+                <div className="flex bg-gray-200 mx-[1.1vw] my-[0.5vw] p-[0.3vw] border overflow-hidden">
                     <button
-                        className={`px-[0.5vw] py-[0.35vw] rounded-[0.3vw] text-[0.8vw] font-medium transition-colors ${
+                        className={`px-[0.5vw] py-[0.35vw] text-[0.8vw] font-medium transition-colors ${
                             view === "playground"
-                                ? "bg-white text-gray-800 shadow"
+                                ? "bg-[#212121] text-white shadow"
                                 : "text-gray-600 hover:text-gray-800"
                         }`}
                         onClick={() => setView("playground")}
@@ -42,9 +42,9 @@ export default function WorkspaceSection() {
                         Playground
                     </button>
                     <button
-                        className={`px-[0.5vw] py-[0.35vw] rounded-[0.3vw] text-[0.8vw] font-medium transition-colors ${
+                        className={`px-[0.5vw] py-[0.35vw] text-[0.8vw] font-medium transition-colors ${
                             view === "code"
-                                ? "bg-white text-gray-800 shadow"
+                                ? "bg-[#212121] text-white shadow"
                                 : "text-gray-600 hover:text-gray-800"
                         }`}
                         onClick={() => setView("code")}

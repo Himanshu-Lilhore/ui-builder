@@ -1,5 +1,7 @@
 import { nodePropsToStyle } from '../../../utils/styleUtils';
 
+// [&>div.absolute]:opacity-0 [&>div.absolute:hover]:opacity-100
+
 export const Node = ({ node, selectedId, onSelect, children }) => {
     return (
         <div
@@ -10,7 +12,7 @@ export const Node = ({ node, selectedId, onSelect, children }) => {
                     ? { outline: "0.15vw dotted #2563eb", outlineOffset: "0.3vw", zIndex: 99 }
                     : {}),
             }}
-            className={"m-2 cursor-pointer group relative"}
+            className="m-2 cursor-pointer relative [&:hover>.absolute-border]:opacity-100"
             onClick={onSelect}
         >
             <div
@@ -29,7 +31,7 @@ export const Node = ({ node, selectedId, onSelect, children }) => {
             >
                 {node.id}
             </div>
-            <div className='absolute opacity-0 pointer-events-none group-hover:opacity-100 top-0 left-0 w-full h-full border-[0.1vw] border-red-500 z-[999]'>
+            <div className='absolute-border absolute pointer-events-none top-0 left-0 opacity-0 w-full h-full border-[0.15vw] border-red-500 z-[999]'>
             </div>
             {node.children && node.children.length > 0 && (
                 <div className="w-full h-full">{children}</div>

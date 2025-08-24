@@ -9,7 +9,7 @@ export default function Create() {
             <div className="flex gap-[1vw] min-h-[5vw]">
                 <button
                     onClick={() => dispatch(addDiv())}
-                    className="px-[1vw] py-[0.1vw] rounded-full text-[1vw] h-fit border-[0.15vw] border-b-[0.2vw] hover:border-b-[0.3vw] hover:translate-y-[-0.15vw] active:translate-y-[0.15] border-white duration-150 transition-all"
+                    className="px-[0.8vw] py-[0.1vw] text-[1vw] h-fit border-[0.15vw] border-b-[0.2vw] hover:border-b-[0.3vw] hover:translate-y-[-0.15vw] active:translate-y-[0.15] border-white duration-150 transition-all"
                 >
                     + div
                 </button>
