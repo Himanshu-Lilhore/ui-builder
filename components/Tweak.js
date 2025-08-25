@@ -196,7 +196,7 @@ export default function Tweak() {
         <div className="grow flex flex-col px-[1vw] py-[1vw] gap-[0.8vw] overflow-y-scroll">
             <div className="text-[#a1a1a1] text-[0.9vw] font-semibold"># Tweak</div>
             <button
-                className="mb-2 px-3 py-1 rounded bg-red-500 text-white text-[0.9vw] w-fit"
+                className="mb-2 px-3 py-1 rounded bg-[#ED1C24] bbg-red-500 text-white text-[0.9vw] w-fit #ED1C24"
                 onClick={() => dispatch(deleteNode(node.id))}
             >
                 Delete
@@ -276,7 +276,7 @@ export default function Tweak() {
                                                         })
                                                     )
                                                 }
-                                                className="w-8 h-8 rounded-full"
+                                                className="w-8 h-8 cursor-pointer"
                                                 onClick={(e) => e.stopPropagation()}
                                             />
                                         ) : prop.type === "toggle" ? (
