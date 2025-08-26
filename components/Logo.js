@@ -1,8 +1,8 @@
 export default function Logo() {
-    return logoStyles[2];
+    return logo3;
 }
 
-const logoStyles = [
+const logo1 = (
     <div
         className="sticky top-0 relative text-[3vw] italic font-semibold w-full text-center py-[1vw] whitespace-nowrap"
         style={{ fontFamily: "Trebuchet MS" }}
@@ -11,7 +11,10 @@ const logoStyles = [
             ui-builder
         </div>
         <div className="relative z-20">ui-builder</div>
-    </div>,
+    </div>
+);
+
+const logo2 = (
     <div
         className="sticky top-0 relative text-[3vw] italic font-semibold w-full text-center py-[1vw] whitespace-nowrap bg-white"
         style={{ fontFamily: "Trebuchet MS" }}
@@ -20,7 +23,10 @@ const logoStyles = [
             ui-builder
         </div>
         <div className="relative z-10">ui-builder</div>
-    </div>,
+    </div>
+);
+
+const logo3 = (
     <div
         className="sticky top-0 group relative text-[1vw] italic font-semibold w-full text-center whitespace-nowrap bg-white min-h-[5vw] max-h-[5vw] text-[#212121] overflow-hidden"
         style={{ fontFamily: "Trebuchet MS" }}
@@ -28,7 +34,7 @@ const logoStyles = [
         <div className="flex flex-wrap w-[300%] h-[300%] translate-x-[-50%] translate-y-[-70%] rotate-x-[30deg] rotate-y-[-20deg] scale-[180%] hover:scale-[120%] duration-300 transition-all">
             {Array(200)
                 .fill(1)
-                .map((item, index) => {
+                .map((_item, index) => {
                     return (
                         <div
                             key={index}
@@ -39,5 +45,5 @@ const logoStyles = [
                     );
                 })}
         </div>
-    </div>,
-];
+    </div>
+);
