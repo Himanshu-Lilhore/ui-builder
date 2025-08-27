@@ -5,6 +5,10 @@
     --primary-text: #ffffff;
 }
 
+button{
+    cursor: pointer;
+}
+
 body {
     background-color: var(--primary-background);
     color: var(--primary-text);

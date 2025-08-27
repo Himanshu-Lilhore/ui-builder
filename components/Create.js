@@ -6,12 +6,13 @@ export default function Create() {
     return (
         <div className="sticky top-0 flex flex-col px-[1vw] py-[1vw] gap-[0.5vw]">
             <div className="text-[#a1a1a1] text-[0.9vw] font-semibold"># Create</div>
-            <div className="flex gap-[1vw] min-h-[5vw]">
+            <div className="flex gap-[1vw] min-h-[5vw] tracking-widest">
                 <button
                     onClick={() => dispatch(addDiv())}
-                    className="px-[0.8vw] py-[0.1vw] text-[1vw] h-fit border-[0.15vw] border-b-[0.2vw] hover:border-b-[0.3vw] hover:translate-y-[-0.15vw] active:translate-y-[0.15] border-white duration-150 transition-all"
+                    className="group relative min-w-[5vw] h-[2vw] text-[1vw] text-white bg-black active:translate-y-[0.15] duration-200 transition-all"
                 >
-                    + div
+                    <div className="absolute top-0 left-0 w-[0.2vw] group-hover:w-[15%] h-full flex items-center justify-center overflow-hidden bg-green-400 group-hover:text-black text-green-400 ease-in-out duration-200 transition-all"></div>
+                    div
                 </button>
             </div>
         </div>

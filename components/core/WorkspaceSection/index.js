@@ -30,22 +30,26 @@ export default function WorkspaceSection() {
     return (
         <div className="flex-1 flex flex-col">
             <div className="flex items-center p-[0.3vw]">
-                <div className="flex bg-gray-200 mx-[1.1vw] my-[0.5vw] p-[0.3vw] border overflow-hidden">
+                <div className="relative flex bg-gray-200 mx-[1.1vw] my-[0.5vw] border rounded-lg overflow-hidden">
+                    {/* Sliding highlight */}
+                    <div
+                        className={`${view === "playground" ? "translate-x-0 w-[65%]" : "translate-x-[155%] w-[40%]"} absolute top-0 bottom-0 bg-[#212121] rounded-md transition-all duration-300 ease-in-out`}
+                    />
+
                     <button
-                        className={`px-[0.5vw] py-[0.35vw] text-[0.8vw] font-medium transition-colors ${
+                        className={`relative z-10 px-[0.5vw] py-[0.35vw] text-[0.8vw] font-semibold transition-colors ${
                             view === "playground"
-                                ? "bg-[#212121] text-white shadow"
+                                ? "text-white"
                                 : "text-gray-600 hover:text-gray-800"
                         }`}
                         onClick={() => setView("playground")}
                     >
                         Playground
                     </button>
+
                     <button
-                        className={`px-[0.5vw] py-[0.35vw] text-[0.8vw] font-medium transition-colors ${
-                            view === "code"
-                                ? "bg-[#212121] text-white shadow"
-                                : "text-gray-600 hover:text-gray-800"
+                        className={`relative z-10 px-[0.5vw] py-[0.35vw] text-[0.8vw] font-semibold transition-colors ${
+                            view === "code" ? "text-white" : "text-gray-600 hover:text-gray-800"
                         }`}
                         onClick={() => setView("code")}
                     >
@@ -53,6 +57,7 @@ export default function WorkspaceSection() {
                     </button>
                 </div>
             </div>
+
             <div className="flex-1 relative">
                 <Playground ref={pgRef}>{tree.map(renderNode)}</Playground>
                 <TailwindCode code={tailwindCode} visible={view === "code"} />
